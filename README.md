@@ -21,7 +21,8 @@ Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보는 
 *   python3 -m venv a
 *   source a/bin/activate
 *   pip install azure-ai-metricsadvisor --pre
-* 
+
+
 * Visual Studio Code: SSH 접속 확장팩 + Python 확장팩 설치
 *   확장팩 설치 후 설정이 안 될 경우
 *     - `which python` 으로 python 설치 경로 찾기
@@ -52,14 +53,13 @@ dotnet --list-sdks   << 이거 돌려서 버전 확인하기
 1. 실행 dotnet run "Program.cs"
 
 
-# :closed book: 주의 사항
+# ✅ 주의 사항
 
 *  test.py 파일에 코드 수정 요망
-* 
+
 *  endpoint ="ENDPOINT"
 *  subscriptionKey = "SUBSCRIPTION_KEY"
 *  apiKey = "API_KEY"  
-* 
+
 *  sqlServerConnectionString = ""
-* 
-* 
+ 
