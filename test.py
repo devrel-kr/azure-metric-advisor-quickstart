@@ -1,5 +1,6 @@
 import os
 import datetime
+import asyncio
 
 from azure.ai.metricsadvisor import (
     MetricsAdvisorKeyCredential,
@@ -18,29 +19,34 @@ from azure.ai.metricsadvisor.models import (
 )
 
 # TODO: async
-endpoint = os.getenv("ENDPOINT")
-subscriptionKey = os.getenv("SUBSCRIPTION_KEY")
-apiKey = os.getenv("API_KEY")
+endpoint ="ENDPOINT"
+subscriptionKey = "SUBSCRIPTION_KEY"
+apiKey = "API_KEY"
 
+sqlServerConnectionString = ""
 credential = MetricsAdvisorKeyCredential(subscriptionKey, apiKey)
 adminClient = MetricsAdvisorAdministrationClient(endpoint, credential)
+ 
 
 # Security
 sqlServerConnectionString = ""
 sqlServerQuery = "SELECT @IntervalStart as timestamp, region, category, revenue, cost FROM MASampleRevenueCost WHERE timestamp >= @IntervalStart and timestamp < @IntervalEnd"
 
-dataFeed = DataFeed()
-dataFeed.Name = "Change Me!!"
+#dataFeed = DataFeed("Change Me!!")
+#dataFeed.Name = "Change Me!!"
 
-dataFeed.DataSource = SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery)
-dataFeed.Granularity = DataFeedGranularity(DataFeedGranularityType.Daily)
+Source = SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery)
+Granularity = DataFeedGranularity(DataFeedGranularityType.Daily)
 
-dataFeed.Schema = DataFeedSchema()
-dataFeed.Schema.MetricColumns.Add(DataFeedMetric("cost"))
-dataFeed.Schema.MetricColumns.Add(DataFeedMetric("revenue"))
-dataFeed.Schema.DimensionColumns.Add(DataFeedDimension("category"))
-dataFeed.Schema.DimensionColumns.Add(DataFeedDimension("city"))
-dataFeed.IngestionSettings = DataFeedIngestionSettings(datetime.strptime("2020-01-01T00:00:00Z"))
+Schema = DataFeedSchema()
+Schema.MetricColumns.Add(DataFeedMetric("revenue"))
+Schema.DimensionColumns.Add(DataFeedDimension("category"))
+Schema.DimensionColumns.Add(DataFeedDimension("city"))
+IngestionSettings = DataFeedIngestionSettings(datetime.strptime("2020-01-01T00:00:00Z"))
+Schema.MetricColumns.Add(DataFeedMetric("cost"))
+
+dataFeed = DataFeed("Change Me!!", Source, Granularity, Schema, IngestionSettings)
+
 
 # TODO
 # Response<DataFeed> response = await adminClient.CreateDataFeedAsync(dataFeed);
