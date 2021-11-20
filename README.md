@@ -1,5 +1,27 @@
-# azure-metric-advisor-quickstart
+# azure-metric-advisor-quickstart#
 Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보는 저장소
+
+##시작 전 개발 환경 설정##
+
+### Azure ###
+
+* Student 가입: https://azure.microsoft.com/ko-kr/free/students/?ocid=AID3035128
+* Ubuntu 20.04 사용을 권장
+
+### Linux ###
+
+* Azure VM: Ubuntu 20.04 + venv 기본 설정 필요
+*   sudo apt update
+*   sudo apt install python3.8-venv
+*   python3 -m venv a
+*   source a/bin/activate
+*   pip install azure-ai-metricsadvisor --pre
+* 
+* Visual Studio Code: SSH 접속 확장팩 + Python 확장팩 설치
+*   확장팩 설치 후 설정이 안 될 경우
+*     - `which python` 으로 python 설치 경로 찾기
+*       Ctrl+Shift+p: command palette 실행 
+*       python interpreter 클릭 후 설정
 
 #.NET 실행 방법
 (우분투 리눅스 기준 / 터미널에 입력 ! activate 상태인지 꼭 확인)
