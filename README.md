@@ -32,7 +32,7 @@ Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보는 
 
 
 
-# 🛠 .NET 실행 방법
+## 🛠 .NET 실행 방법 ##
 (우분투 리눅스 기준 / 터미널에 입력 ! activate 상태인지 꼭 확인)
 
 1. .NET 설치 전 패키지 추가
@@ -53,7 +53,7 @@ dotnet --list-sdks   << 이거 돌려서 버전 확인하기
 1. 실행 dotnet run "Program.cs"
 
 
-# ✅ 주의 사항
+## ✅ 주의 사항 ##
 
 *  test.py 파일에 코드 수정 요망
 
