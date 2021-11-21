@@ -9,7 +9,7 @@ Metrics Advisor는 AI 를 사용하여 시계열 데이터에서 데이터 모�
 
 Metircs Advisor를 사용하면, 머신 러닝을 몰라도 데이터 베이스 상의 문제를 AI 를 사용하여 빠르게 찾아내고 해결하는 것이 가능
 
-> 생성한 Metrics Advisor Resource 에서 *key 관리 > 액세스 키 표시* 에서 **endpoint | key1** 값을 각각 test.py 내부의**endpoint | subscriptionKey** 에 부여
+> 생성한 Metrics Advisor Resource 에서 *key 관리 > 액세스 키 표시* 에서 **endpoint | key1** 값을 각각 test.py 내부의 **endpoint | subscriptionKey** 에 부여
   
 > [API key 확인 링크](https://metricsadvisor.azurewebsites.net/api-key) 를 통해서 **API Keys > Primary API Key 혹은 Secondary API Key** 값을 test.py 내부의 **apiKey** 에 부여
   
