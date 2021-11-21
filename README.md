@@ -1,6 +1,18 @@
 # azure-metric-advisor-quickstart #
 Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보는 저장소
 
+
+
+## 👉 Azure Metrics Advisor ## 
+  
+Metrics Advisor는 AI 를 사용하여 시계열 데이터에서 데이터 모니터링 및 이상 감지를 수행하는 [Azure Applied AI Services](https://docs.microsoft.com/en-us/azure/applied-ai-services/what-are-applied-ai-services) 의 일부입니다.  
+
+Metircs Advisor를 사용하면, 머신 러닝을 몰라도 데이터 베이스 상의 문제를 AI 를 사용하여 빠르게 찾아내고 해결할 수 있습니다.
+    
+  
+## 👉 Azure Virtual Machine ##
+  
+
 ## 🛠 시작 전 개발 환경 설정 ##
 
 ### [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=osscontributhon-event-juyoo) ###
@@ -8,6 +20,7 @@ Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보는 
 ### 💻 Azure ###
 
 * Student 가입: https://azure.microsoft.com/ko-kr/free/students/?ocid=AID3035128
+* 일반 사용자 가입 : https://azure.microsoft.com/ko-kr/free/
 * Ubuntu 20.04 사용을 권장
 
 
@@ -31,8 +44,9 @@ Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보는 
 
 
 
-
-## 🛠 .NET 실행 방법 ##
+# 🛠 Quick Start #
+### 사용 프로그래밍 언어 - C# ###
+**- .NET 실행 방법**  
 (우분투 리눅스 기준 / 터미널에 입력 ! activate 상태인지 꼭 확인)
 
 * .NET 설치 전 패키지 추가
@@ -57,9 +71,14 @@ Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보는 
 
 * dotnet add package Azure.AI.MetricsAdvisor --version 1.1.0
 
-* 실행 dotnet run "Program.cs"
+* 실행 dotnet run "{파일명}" 
+
+### 사용 프로그래밍 언어 - Python ###
+  
+* pip install azure-ai-metricsadvisor --pre
 
 
+  
 ## ✅ 주의 사항 ##
 
 *  test.py 파일에 코드 수정 요망
