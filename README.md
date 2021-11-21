@@ -8,7 +8,10 @@ Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보고,
 Metrics Advisor는 AI 를 사용하여 시계열 데이터에서 데이터 모니터링 및 이상 감지를 수행하는 [Azure Applied AI Services](https://docs.microsoft.com/en-us/azure/applied-ai-services/what-are-applied-ai-services) 의 일부
 
 Metircs Advisor를 사용하면, 머신 러닝을 몰라도 데이터 베이스 상의 문제를 AI 를 사용하여 빠르게 찾아내고 해결하는 것이 가능
-    
+
+> 생성한 Metrics Advisor Resource 에서 *key 관리 > 액세스 키 표시* 에서 **endpoint | key1** 값을 각각 test.py 내부의**endpoint | subscriptionKey** 에 부여
+  
+> [API key 확인 링크](https://metricsadvisor.azurewebsites.net/api-key) 를 통해서 **API Keys > Primary API Key 혹은 Secondary API Key** 값을 test.py 내부의 **apiKey** 에 부여
   
 ### 👉 Azure Virtual Machine ###  
   
@@ -19,7 +22,7 @@ Azure 에서 제공하는 가상머신 리소스를 활용하여 vscode 에서 �
 
 ## 🛠 시작 전 개발 환경 설정 ##
 
-### [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=osscontributhon-event-juyoo) ###
+### [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=osscontributhon-event-juyoo) 설치 ###
 
 ### 💻 Azure ###
 
