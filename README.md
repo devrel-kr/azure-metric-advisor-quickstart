@@ -33,7 +33,7 @@ Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보는 
 
 
 ## 🛠 .NET 실행 방법 ##
-(우분투 리눅스 기준 / 터미널에 입력 ! activate 상태인지 꼭 확인)
+(우분투 리눅스 기준 / 터미널에 입력 ! activate 상태인지 꼭 확인).
 
 * .NET 설치 전 패키지 추가
   wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
