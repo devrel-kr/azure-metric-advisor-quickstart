@@ -27,7 +27,9 @@ async def task():
     adminClient = MetricsAdvisorAdministrationClient(endpoint, credential)
 
     sqlServerConnectionString = os.getenv("SQL_SERVER_CONNECTION_STRING")
-    sqlServerQuery = "SELECT @IntervalStart as timestamp, region, category, revenue, cost FROM MASampleRevenueCost WHERE timestamp >= @IntervalStart and timestamp < @IntervalEnd"
+    sqlServerQuery = "SELECT @IntervalStart as timestamp," \
+        + " region, category, revenue, cost FROM MASampleRevenueCost " \
+        + "WHERE timestamp >= @IntervalStart and timestamp < @IntervalEnd"
 
     # set Datafeed
     name = "Sample data feed"
@@ -40,7 +42,8 @@ async def task():
     schema.DimensionColumns.Add(DataFeedDimension("city"))
     schema.MetricColumns.Add(DataFeedMetric("cost"))
 
-    ingestionSettings = DataFeedIngestionSettings(datetime.strptime("2020-01-01T00:00:00Z"))
+    ingestionSettings = DataFeedIngestionSettings(
+        datetime.strptime("2020-01-01T00:00:00Z"))
 
     dataFeed = DataFeed(name, source, granularity, schema, ingestionSettings)
 
