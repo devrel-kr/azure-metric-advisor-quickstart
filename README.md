@@ -1,16 +1,16 @@
 # azure-metric-advisor-quickstart #
-Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보고, 다양한 언어로 변환해 실행해보는 프로젝트입니다.
+Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보고, 다양한 언어로 변환해 실행해보는 프로젝트
 
 
 
-## 👉 Azure Metrics Advisor ## 
+### 👉 Azure Metrics Advisor ### 
   
-Metrics Advisor는 AI 를 사용하여 시계열 데이터에서 데이터 모니터링 및 이상 감지를 수행하는 [Azure Applied AI Services](https://docs.microsoft.com/en-us/azure/applied-ai-services/what-are-applied-ai-services) 의 일부입니다.  
+Metrics Advisor는 AI 를 사용하여 시계열 데이터에서 데이터 모니터링 및 이상 감지를 수행하는 [Azure Applied AI Services](https://docs.microsoft.com/en-us/azure/applied-ai-services/what-are-applied-ai-services) 의 일부
 
-Metircs Advisor를 사용하면, 머신 러닝을 몰라도 데이터 베이스 상의 문제를 AI 를 사용하여 빠르게 찾아내고 해결할 수 있습니다.
+Metircs Advisor를 사용하면, 머신 러닝을 몰라도 데이터 베이스 상의 문제를 AI 를 사용하여 빠르게 찾아내고 해결하는 것이 가능
     
   
-## 👉 Azure Virtual Machine ##  
+### 👉 Azure Virtual Machine ###  
   
 Test 환경을 Ubuntu 20.04 환경을 사용하였기 때문에 Ubuntu 20.04 사용을 권장  
   
@@ -65,7 +65,7 @@ Azure 에서 제공하는 가상머신 리소스를 활용하여 vscode 에서 �
   sudo apt-get install -y dotnet-sdk-6.0
   
 * 설치 확인
-  dotnet --list-sdks   << 이거 돌려서 버전 확인하기
+  dotnet --list-sdks   << 버전 확인하기
   
 * dotnet new console -n metrics-advisor-quickstart
 
@@ -92,10 +92,10 @@ Azure 에서 제공하는 가상머신 리소스를 활용하여 vscode 에서 �
 *  endpoint ="ENDPOINT"
 *  subscriptionKey = "SUBSCRIPTION_KEY"
 *  apiKey = "API_KEY"  
-*  => 보안 유지를 위해 key 값을 할당한 후 업로드 하지 말아야 합니다.
+*  => 보안 유지를 위해 key 값을 할당한 후 업로드 하지 않기
 
 *  sqlServerConnectionString = ""
-*  => 보안 유지를 위해 sql db 로그인 정보를 업로드 하지 말아야 합니다.
+*  => 보안 유지를 위해 sql db 로그인 정보를 업로드 하지 않기
   
-*  test.py 의 33 line : name 에는 중복되지 않는 data 이름을 넣어주어야 합니다.
+*  test.py 의 33 line : name 에는 중복되지 않는 data 이름을 할당
  
