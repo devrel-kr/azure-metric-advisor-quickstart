@@ -15,58 +15,55 @@ from azure.ai.metricsadvisor.models import (
     DataFeedGranularity,
     DataFeedGranularityType,
     DataFeedIngestionSettings,
-    DataFeed
+    DataFeed,
 )
 
-# TODO: async
-endpoint ="ENDPOINT"
-subscriptionKey = "SUBSCRIPTION_KEY"
-apiKey = "API_KEY"
+async def task():
+    endpoint = os.getenv("ENDPOINT")
+    subscriptionKey = os.getenv("SUBSCRIPTION_KEY")
+    apiKey = os.getenv("API_KEY")
 
-sqlServerConnectionString = ""
-credential = MetricsAdvisorKeyCredential(subscriptionKey, apiKey)
-adminClient = MetricsAdvisorAdministrationClient(endpoint, credential)
- 
+    credential = MetricsAdvisorKeyCredential(subscriptionKey, apiKey)
+    adminClient = MetricsAdvisorAdministrationClient(endpoint, credential)
 
-# Security
-sqlServerConnectionString = ""
-sqlServerQuery = "SELECT @IntervalStart as timestamp, region, category, revenue, cost FROM MASampleRevenueCost WHERE timestamp >= @IntervalStart and timestamp < @IntervalEnd"
+    sqlServerConnectionString = os.getenv("SQL_SERVER_CONNECTION_STRING")
+    sqlServerQuery = "SELECT @IntervalStart as timestamp, region, category, revenue, cost FROM MASampleRevenueCost WHERE timestamp >= @IntervalStart and timestamp < @IntervalEnd"
 
-#dataFeed = DataFeed("Change Me!!")
-#dataFeed.Name = "Change Me!!"
+    # set Datafeed
+    name = "Sample data feed"
+    source = SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery)
+    granularity = DataFeedGranularity(DataFeedGranularityType.Daily)
 
-Source = SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery)
-Granularity = DataFeedGranularity(DataFeedGranularityType.Daily)
+    schema = DataFeedSchema()
+    schema.MetricColumns.Add(DataFeedMetric("revenue"))
+    schema.DimensionColumns.Add(DataFeedDimension("category"))
+    schema.DimensionColumns.Add(DataFeedDimension("city"))
+    schema.MetricColumns.Add(DataFeedMetric("cost"))
 
-Schema = DataFeedSchema()
-Schema.MetricColumns.Add(DataFeedMetric("revenue"))
-Schema.DimensionColumns.Add(DataFeedDimension("category"))
-Schema.DimensionColumns.Add(DataFeedDimension("city"))
-IngestionSettings = DataFeedIngestionSettings(datetime.strptime("2020-01-01T00:00:00Z"))
-Schema.MetricColumns.Add(DataFeedMetric("cost"))
+    ingestionSettings = DataFeedIngestionSettings(datetime.strptime("2020-01-01T00:00:00Z"))
 
-dataFeed = DataFeed("Change Me!!", Source, Granularity, Schema, IngestionSettings)
+    dataFeed = DataFeed(name, source, granularity, schema, ingestionSettings)
 
+    response = await adminClient.CreateDataFeedAsync(dataFeed)
+    createdDataFeed = response.Value
 
-# TODO
-# Response<DataFeed> response = await adminClient.CreateDataFeedAsync(dataFeed);
-# DataFeed createdDataFeed = response.Value;
+    print(f"Data feed ID: {createdDataFeed.Id}")
+    print(f"Data feed status: {createdDataFeed.Status.Value}")
+    print(f"Data feed created time: {createdDataFeed.CreatedOn.Value}")
 
-print(f"Data feed ID: {createdDataFeed.Id}")
-print(f"Data feed status: {createdDataFeed.Status.Value}")
-print(f"Data feed created time: {createdDataFeed.CreatedOn.Value}")
+    print(f"Data feed administrators:")
 
-print(f"Data feed administrators:")
+    for admin in createdDataFeed.Administrators:
+        print(f" - {admin}")
 
-for admin in createdDataFeed.Administrators:
-    print(f" - {admin}")
+    print(f"Metric IDs:")
 
-print(f"Metric IDs:")
+    for metric in createdDataFeed.Schema.MetricColumns:
+        print(f" - {metric.Name}: {metric.Id}")
 
-for metric in createdDataFeed.Schema.MetricColumns:
-    print(f" - {metric.Name}: {metric.Id}")
+    print(f"Dimensions:")
 
-print(f"Dimensions:")
+    for dimension in createdDataFeed.Schema.DimensionColumns:
+        print(f"- {dimension.Name}")
 
-for dimension in createdDataFeed.Schema.DimensionColumns:
-    print(f"- {dimension.Name}")
+asyncio.run(task())
