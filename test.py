@@ -1,3 +1,5 @@
+# 김민주 - 실행 성공
+
 import os
 import datetime
 
@@ -27,7 +29,8 @@ sqlServerQuery = "SELECT @IntervalStart as timestamp, region, category, revenue,
 
 # set Datafeed
 name = "<change name>"
-source = SqlServerDataFeedSource(connection_string=sqlServerConnectionString, query=sqlServerQuery)
+source = SqlServerDataFeedSource(
+    connection_string=sqlServerConnectionString, query=sqlServerQuery)
 granularity = DataFeedGranularity(DataFeedGranularityType.Daily)
 
 schema = DataFeedSchema(
@@ -43,7 +46,8 @@ schema = DataFeedSchema(
 
 ingestionSettings = datetime.datetime(2019, 10, 1)
 
-dataFeed = adminClient.create_data_feed(name, source, granularity, schema, ingestionSettings)
+dataFeed = adminClient.create_data_feed(
+    name, source, granularity, schema, ingestionSettings)
 
 # print data inside of the dataFeed
 print(f"Data feed ID: {dataFeed.id}")
