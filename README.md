@@ -1,5 +1,5 @@
 # azure-metric-advisor-quickstart #
-Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보는 저장소
+Azure SDK를 사용해 Metric Advisor를 사용하는 내용을 정리해보고, 다양한 언어로 변환해 실행해보는 프로젝트입니다.
 
 
 
@@ -75,7 +75,8 @@ Metircs Advisor를 사용하면, 머신 러닝을 몰라도 데이터 베이스 
 
 ### 사용 프로그래밍 언어 - Python ###
   
-* pip install azure-ai-metricsadvisor --pre
+* pip install azure-ai-metricsadvisor --pre  
+* 실행 python3 "{파일명}"
 
 
   
