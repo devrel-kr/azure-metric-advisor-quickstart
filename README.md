@@ -10,7 +10,11 @@ Metrics Advisor는 AI 를 사용하여 시계열 데이터에서 데이터 모�
 Metircs Advisor를 사용하면, 머신 러닝을 몰라도 데이터 베이스 상의 문제를 AI 를 사용하여 빠르게 찾아내고 해결할 수 있습니다.
     
   
-## 👉 Azure Virtual Machine ##
+## 👉 Azure Virtual Machine ##  
+  
+Test 환경을 Ubuntu 20.04 환경을 사용하였기 때문에 Ubuntu 20.04 사용을 권장  
+  
+Azure 에서 제공하는 가상머신 리소스를 활용하여 vscode 에서 프로젝트를 수행
   
 
 ## 🛠 시작 전 개발 환경 설정 ##
@@ -76,6 +80,7 @@ Metircs Advisor를 사용하면, 머신 러닝을 몰라도 데이터 베이스 
 ### 사용 프로그래밍 언어 - Python ###
   
 * pip install azure-ai-metricsadvisor --pre  
+  
 * 실행 python3 "{파일명}"
 
 
@@ -87,6 +92,10 @@ Metircs Advisor를 사용하면, 머신 러닝을 몰라도 데이터 베이스 
 *  endpoint ="ENDPOINT"
 *  subscriptionKey = "SUBSCRIPTION_KEY"
 *  apiKey = "API_KEY"  
+*  => 보안 유지를 위해 key 값을 할당한 후 업로드 하지 말아야 합니다.
 
 *  sqlServerConnectionString = ""
+*  => 보안 유지를 위해 sql db 로그인 정보를 업로드 하지 말아야 합니다.
+  
+*  test.py 의 33 line : name 에는 중복되지 않는 data 이름을 넣어주어야 합니다.
  
